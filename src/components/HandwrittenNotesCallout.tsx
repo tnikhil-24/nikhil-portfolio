@@ -30,7 +30,7 @@ export default function HandwrittenNotesCallout() {
         </div>
       </div>
       <p className="text-center text-sm italic text-[var(--text-dim)]">
-        "These notes were sketched during a planning session — this is how I actually think through projects."
+        &ldquo;These notes were sketched during a planning session — this is how I actually think through projects.&rdquo;
       </p>
     </div>
   );

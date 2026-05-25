@@ -28,7 +28,7 @@ export default function ProjectCard({ project, variant = "featured" }: ProjectCa
 
       {/* Stack */}
       <p className="mt-1.5 font-mono text-xs text-[#4a5568] break-words">
-        // {project.stack.map((s) => s.toLowerCase()).join(", ")}
+        {"// "}{project.stack.map((s) => s.toLowerCase()).join(", ")}
       </p>
 
       {/* Description */}
