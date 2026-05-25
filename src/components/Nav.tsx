@@ -34,7 +34,7 @@ export default function Nav() {
                     "font-mono text-sm transition-colors",
                     active
                       ? "text-[var(--accent)]"
-                      : "text-[var(--text-dim)] hover:text-[var(--text)]"
+                      : "text-[var(--text-dim)] transition-colors duration-200 hover:text-[var(--accent)]"
                   )}
                 >
                   {label}

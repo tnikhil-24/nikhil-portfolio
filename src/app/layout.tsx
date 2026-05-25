@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import Nav from "@/components/Nav";
+import MotionProvider from "@/components/MotionProvider";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -38,8 +39,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={instrumentSans.variable}>
       <body>
-        <Nav />
-        <main>{children}</main>
+        <MotionProvider>
+          <Nav />
+          <main>{children}</main>
+        </MotionProvider>
       </body>
     </html>
   );

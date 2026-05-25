@@ -9,12 +9,21 @@ export default function ProcessLog() {
   const [activeId, setActiveId] = useState<number | null>(null);
 
   return (
-    <div className="flex flex-col divide-y divide-[var(--bg-border)]">
+    <motion.div
+      className="flex flex-col divide-y divide-[var(--bg-border)]"
+      initial="hidden"
+      animate="show"
+      variants={{ show: { transition: { staggerChildren: 0.08 } } }}
+    >
       {workflowStages.map((stage) => {
         const isActive = activeId === stage.id;
 
         return (
-          <div key={stage.id}>
+          <motion.div
+            key={stage.id}
+            variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
             <button
               onClick={() => setActiveId((prev) => toggleActive(prev, stage.id))}
               className="w-full py-4 text-left"
@@ -76,9 +85,9 @@ export default function ProcessLog() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </motion.div>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

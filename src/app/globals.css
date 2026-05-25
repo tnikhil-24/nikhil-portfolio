@@ -53,6 +53,14 @@ body {
   animation: cursor-blink 1s step-end infinite;
 }
 
+/* Respect reduced motion for CSS animations; Framer Motion handled via MotionConfig */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink,
+  .animate-pulse-green {
+    animation: none;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

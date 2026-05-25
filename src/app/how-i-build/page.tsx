@@ -6,6 +6,7 @@ import SmartZoneDiagram from "@/components/SmartZoneDiagram";
 import HitlDiagram from "@/components/HitlDiagram";
 import RalphCallout from "@/components/RalphCallout";
 import ClaudeMdCallout from "@/components/ClaudeMdCallout";
+import FadeInSection from "@/components/FadeInSection";
 
 export const metadata: Metadata = {
   title: "How I Build with AI — Nikhil T",
@@ -44,40 +45,52 @@ export default function HowIBuildPage() {
         </section>
 
         {/* Handwritten Notes */}
-        <section className="flex flex-col gap-6">
-          <SectionLabel>planning in the real world</SectionLabel>
-          <HandwrittenNotesCallout />
-        </section>
+        <FadeInSection>
+          <section className="flex flex-col gap-6">
+            <SectionLabel>planning in the real world</SectionLabel>
+            <HandwrittenNotesCallout />
+          </section>
+        </FadeInSection>
 
         {/* Tracer Bullets */}
-        <section className="flex flex-col gap-6">
-          <SectionLabel>tracer bullets vs horizontal coding</SectionLabel>
-          <TracerBulletsDiagram />
-        </section>
+        <FadeInSection>
+          <section className="flex flex-col gap-6">
+            <SectionLabel>tracer bullets vs horizontal coding</SectionLabel>
+            <TracerBulletsDiagram />
+          </section>
+        </FadeInSection>
 
         {/* Smart Zone / Dumb Zone */}
-        <section className="flex flex-col gap-6">
-          <SectionLabel>smart zone / dumb zone</SectionLabel>
-          <SmartZoneDiagram />
-        </section>
+        <FadeInSection>
+          <section className="flex flex-col gap-6">
+            <SectionLabel>smart zone / dumb zone</SectionLabel>
+            <SmartZoneDiagram />
+          </section>
+        </FadeInSection>
 
         {/* HITL */}
-        <section className="flex flex-col gap-6">
-          <SectionLabel>hitl multi-phase execution</SectionLabel>
-          <HitlDiagram />
-        </section>
+        <FadeInSection>
+          <section className="flex flex-col gap-6">
+            <SectionLabel>hitl multi-phase execution</SectionLabel>
+            <HitlDiagram />
+          </section>
+        </FadeInSection>
 
         {/* Ralph Callout */}
-        <section className="flex flex-col gap-6">
-          <SectionLabel>what happens without hitl</SectionLabel>
-          <RalphCallout />
-        </section>
+        <FadeInSection>
+          <section className="flex flex-col gap-6">
+            <SectionLabel>what happens without hitl</SectionLabel>
+            <RalphCallout />
+          </section>
+        </FadeInSection>
 
         {/* Claude.md */}
-        <section className="flex flex-col gap-6">
-          <SectionLabel>grounding with claude.md</SectionLabel>
-          <ClaudeMdCallout />
-        </section>
+        <FadeInSection>
+          <section className="flex flex-col gap-6">
+            <SectionLabel>grounding with claude.md</SectionLabel>
+            <ClaudeMdCallout />
+          </section>
+        </FadeInSection>
       </div>
     </div>
   );

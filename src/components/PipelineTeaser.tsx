@@ -4,24 +4,43 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const steps = [
-  {
-    label: "IDEA",
-    description: "Raw problem → scoped spec with Claude",
-  },
-  {
-    label: "PRD + KANBAN",
-    description: "Structured tickets → GitHub Issues via /to-issues",
-  },
-  {
-    label: "AGENT LOOP",
-    description: "Claude Code ships each issue, end-to-end",
-  },
+  { label: "IDEA", description: "Raw problem → scoped spec with Claude" },
+  { label: "PRD + KANBAN", description: "Structured tickets → GitHub Issues via /to-issues" },
+  { label: "AGENT LOOP", description: "Claude Code ships each issue, end-to-end" },
 ];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0 },
 };
+
+function SignalConnector({ delay, vertical }: { delay: number; vertical?: boolean }) {
+  if (vertical) {
+    return (
+      <div className="relative flex h-10 w-px flex-col items-center sm:hidden">
+        <div className="h-full w-px bg-[var(--bg-border)]" />
+        <motion.div
+          className="absolute h-2 w-2 rounded-full bg-[var(--accent)]"
+          style={{ top: 0, boxShadow: "0 0 6px var(--accent)" }}
+          animate={{ top: ["0%", "100%"] }}
+          transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 0.4, ease: "linear", delay }}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative hidden h-px w-16 items-center sm:flex">
+      <div className="h-px w-full bg-[var(--bg-border)]" />
+      <motion.div
+        className="absolute h-2 w-2 rounded-full bg-[var(--accent)]"
+        style={{ left: 0, boxShadow: "0 0 6px var(--accent)" }}
+        animate={{ left: ["0%", "100%"] }}
+        transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 0.4, ease: "linear", delay }}
+      />
+    </div>
+  );
+}
 
 export default function PipelineTeaser() {
   return (
@@ -42,7 +61,7 @@ export default function PipelineTeaser() {
             how i build
           </motion.h2>
 
-          <div className="flex w-full flex-col items-center gap-4 sm:flex-row sm:items-stretch sm:justify-center sm:gap-0">
+          <div className="flex w-full flex-col items-center gap-0 sm:flex-row sm:items-stretch sm:justify-center">
             {steps.map((step, i) => (
               <div key={step.label} className="flex flex-col items-center sm:flex-row sm:items-center">
                 <motion.div
@@ -55,8 +74,8 @@ export default function PipelineTeaser() {
                 </motion.div>
                 {i < steps.length - 1 && (
                   <>
-                    <span className="hidden px-4 font-mono text-lg text-[var(--text-dim)] sm:block">→</span>
-                    <span className="block py-2 font-mono text-lg text-[var(--text-dim)] sm:hidden">↓</span>
+                    <SignalConnector delay={i * 0.6} />
+                    <SignalConnector delay={i * 0.6} vertical />
                   </>
                 )}
               </div>
@@ -66,7 +85,7 @@ export default function PipelineTeaser() {
           <motion.div variants={fadeUp} transition={{ duration: 0.45 }}>
             <Link
               href="/how-i-build"
-              className="font-mono text-sm text-[var(--accent)] hover:underline"
+              className="font-mono text-sm text-[var(--accent)] transition-colors duration-200 hover:underline"
             >
               See the full system →
             </Link>
