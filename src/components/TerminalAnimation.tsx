@@ -45,7 +45,7 @@ export default function TerminalAnimation({ commands = DEFAULT_COMMANDS }: Props
 
   return (
     <div
-      className="w-full max-w-lg rounded-lg border border-[var(--bg-border)] overflow-hidden shadow-2xl"
+      className="w-full max-w-lg mx-auto rounded-lg border border-[var(--bg-border)] overflow-hidden shadow-2xl"
       role="img"
       aria-label="Terminal showing Claude Code slash commands"
     >
